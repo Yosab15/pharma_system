@@ -1,0 +1,6 @@
+@pharmacy_system_HostAddress = http://localhost:7239
+
+GET {{pharmacy_system_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

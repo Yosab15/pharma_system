@@ -1,0 +1,97 @@
+<div class="orders-wrapper">
+
+  <!-- Header -->
+  <div class="orders-header">
+    <div>
+      <h1>Orders</h1>
+      <p>Manage and track all orders</p>
+    </div>
+    <div class="total-badge">
+      📦 {{ totalOrders() }} Orders
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    <div class="search-wrapper">
+      <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/>
+      </svg>
+      <input
+        type="text"
+        placeholder="Search by name or phone..."
+        (input)="onSearch($any($event.target).value)"
+        class="search-input" />
+    </div>
+
+    <select (change)="onStatusFilter($any($event.target).value)" class="filter-select">
+      <option *ngFor="let s of statuses" [value]="s">{{ s || 'All Statuses' }}</option>
+    </select>
+
+    <select (change)="onCityFilter($any($event.target).value)" class="filter-select">
+      <option *ngFor="let c of cities" [value]="c.value">{{ c.label }}</option>
+    </select>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading()" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Table -->
+  <div *ngIf="!loading()" class="table-card">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Customer</th>
+          <th>City</th>
+          <th>Total</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders()" class="order-row">
+          <td><span class="order-id">#{{ order.id }}</span></td>
+          <td class="customer-name">{{ order.customerName }}</td>
+          <td class="order-city">{{ cityLabel(order.city) }}</td>
+          <td class="order-total">{{ order.totalPrice | currency:'EGP':'symbol':'1.0-0' }}</td>
+          <td class="order-date">{{ order.orderDate | date:'MMM d, y' }}</td>
+          <td>
+            <select (change)="updateStatus(order, $any($event.target).value)"
+                    class="status-select"
+                    [class.status-pending]="order.status === 0"
+                    [class.status-contacted]="order.status === 1"
+                    [class.status-delivered]="order.status === 2"
+                    [class.status-cancelled]="order.status === 3">
+              <option value="0" [selected]="order.status === 0">Pending</option>
+              <option value="1" [selected]="order.status === 1">Contacted</option>
+              <option value="2" [selected]="order.status === 2">Delivered</option>
+              <option value="3" [selected]="order.status === 3">Cancelled</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="goToDetails(order.id)" class="details-btn">
+              View Details →
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="pageNumber() === 1" class="page-btn">
+      ← Previous
+    </button>
+    <span class="page-info">Page {{ pageNumber() }} of {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="pageNumber() === totalPages()" class="page-btn">
+      Next →
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,122 @@
+:root {
+  --primary: #C9A55A;
+  --secondary: #9A6A45;
+  --accent: #5B4A2F;
+  --dark: #2F2A24;
+  --background: #181613;
+  --surface: #24201B;
+  --text: #F2E6CF;
+  --border: rgba(201, 165, 90, 0.25);
+}
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 0.6s ease 2.2s both;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+
+.loader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* LOGO */
+.logo-img {
+  width: 120px;
+  height: 120px;
+  background-image: url('../../../assets/ym.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 2;
+  animation: logoPulse 1.5s ease infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(201, 165, 90, 0.35)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(201, 165, 90, 0.6)); }
+}
+
+/* PULSE RINGS */
+.pulse-ring {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 165, 90, 0.35);
+  animation: ringPulse 2s ease infinite;
+}
+
+.delay-1 {
+  width: 180px;
+  height: 180px;
+  top: 60px;
+  left: 60px;
+  animation-delay: 0.4s;
+  border-color: rgba(154, 106, 69, 0.25);
+}
+
+.delay-2 {
+  width: 220px;
+  height: 220px;
+  top: 60px;
+  left: 60px;
+  animation-delay: 0.8s;
+  border-color: rgba(91, 74, 47, 0.18);
+}
+
+@keyframes ringPulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.3); opacity: 0; }
+}
+
+/* DOTS */
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: bounce 0.8s ease infinite;
+}
+
+.dots span:nth-child(1) { background: var(--primary); }
+.dots span:nth-child(2) { background: var(--secondary); animation-delay: 0.15s; }
+.dots span:nth-child(3) { background: var(--accent); animation-delay: 0.3s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* TEXT */
+.loader-text {
+  color: rgba(242, 230, 207, 0.6);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  animation: blink 1.5s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

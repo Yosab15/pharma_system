@@ -1,0 +1,157 @@
+<div class="dashboard-wrapper">
+
+  <!-- Loading -->
+  <div *ngIf="loading()" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <ng-container *ngIf="!loading() && stats()">
+
+    <!-- Header -->
+    <div class="dash-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back, Admin 👋</p>
+      </div>
+      <div class="live-badge">
+        <span class="live-dot"></span> Live
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+
+      <div class="stat-card card-blue">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+              </svg>
+            </div>
+            <span class="card-label">Total Orders</span>
+          </div>
+          <p class="card-value">{{ stats()!.totalOrders }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 75%"></div></div>
+        </div>
+      </div>
+
+      <div class="stat-card card-yellow">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="card-label">Pending Orders</span>
+          </div>
+          <p class="card-value">{{ stats()!.pendingOrders }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 45%"></div></div>
+        </div>
+      </div>
+
+      <div class="stat-card card-green">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <span class="card-label">Delivered Orders</span>
+          </div>
+          <p class="card-value">{{ stats()!.deliveredOrders }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 60%"></div></div>
+        </div>
+      </div>
+
+      <div class="stat-card card-purple">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="card-label">Total Revenue</span>
+          </div>
+          <p class="card-value">{{ stats()!.totalRevenue | currency:'EGP':'symbol':'1.0-0' }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 85%"></div></div>
+        </div>
+      </div>
+
+      <div class="stat-card card-orange">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <span class="card-label">Today Orders</span>
+          </div>
+          <p class="card-value">{{ stats()!.todayOrders }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 30%"></div></div>
+        </div>
+      </div>
+
+      <div class="stat-card card-teal">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="card-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <span class="card-label">Today Revenue</span>
+          </div>
+          <p class="card-value">{{ stats()!.todayRevenue | currency:'EGP':'symbol':'1.0-0' }}</p>
+          <div class="card-bar"><div class="card-bar-fill" style="width: 20%"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Top Products -->
+    <div class="products-card">
+      <div class="products-header">
+        <h2>🏆 Top 5 Products</h2>
+        <span class="products-badge">Best Sellers</span>
+      </div>
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Quantity Sold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of topProducts(); let i = index" class="product-row">
+            <td><span class="rank">{{ i + 1 }}</span></td>
+            <td class="product-name">{{ p.productName }}</td>
+            <td>
+              <div class="qty-bar-wrapper">
+                <span class="qty-badge">{{ p.totalQuantity }} units</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </ng-container>
+</div>

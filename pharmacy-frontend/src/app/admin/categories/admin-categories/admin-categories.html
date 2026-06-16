@@ -1,0 +1,59 @@
+<div class="categories-wrapper">
+
+  <!-- Header -->
+  <div class="categories-header">
+    <div>
+      <h1>Categories</h1>
+      <p>Manage your product categories</p>
+    </div>
+    <button class="add-btn" (click)="openAdd()">+ Add Category</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading()" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Grid -->
+  <div *ngIf="!loading()" class="categories-grid">
+    <div *ngFor="let category of categories(); let i = index" class="category-card">
+      <div class="card-glow"></div>
+      <div class="card-inner">
+        <div class="category-icon">🗂️</div>
+        <h3>{{ category.name }}</h3>
+        <p class="category-id">#{{ category.id }}</p>
+        <button class="delete-btn" (click)="delete(category.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading() && categories().length === 0" class="empty-state">
+    <p>🗂️ No categories yet</p>
+    <button class="add-btn" (click)="openAdd()">Add your first category</button>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" *ngIf="showModal()" (click)="closeModal()"></div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="showModal()">
+    <div class="modal-header">
+      <h2>Add Category</h2>
+      <button class="close-btn" (click)="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Category Name</label>
+        <input type="text" [ngModel]="newCategoryName()"
+               (ngModelChange)="newCategoryName.set($event)"
+               placeholder="Enter category name" />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="cancel-btn" (click)="closeModal()">Cancel</button>
+      <button class="save-btn" (click)="save()">Create</button>
+    </div>
+  </div>
+
+</div>

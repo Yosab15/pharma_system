@@ -1,0 +1,180 @@
+<div class="order-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+    <div class="logo">
+      <img src="yousab logo.jpg" alt="yousab logo" height="100" style="object-fit: contain;" />
+    </div>
+    <div class="step-indicator">Step 2 of 2</div>
+  </nav>
+
+  <!-- SUCCESS STATE -->
+  <div class="success-screen" *ngIf="success">
+    <div class="success-icon">🎉</div>
+    <h2>Order Placed Successfully!</h2>
+    <p>Thank you! We'll contact you shortly to confirm your order.</p>
+    <button class="btn-primary" (click)="goHome()">Back to Home</button>
+  </div>
+
+  <!-- ORDER CONTENT -->
+  <div class="order-layout" *ngIf="!success">
+
+    <!-- LEFT: FORM -->
+    <section class="form-section">
+
+      <h2 class="section-title">Your Details</h2>
+
+      <!-- Customer Name -->
+      <div class="form-group">
+        <label>Customer Name <span class="req">*</span></label>
+        <input type="text" [(ngModel)]="form.customerName" placeholder="Company or Customer Name" />
+      </div>
+
+      <!-- Responsible Name -->
+      <div class="form-group">
+        <label>Responsible Name <span class="req">*</span></label>
+        <input type="text" [(ngModel)]="form.responsibleName" placeholder="Person in charge" />
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label>Phone Number <span class="req">*</span></label>
+        <input type="tel" [(ngModel)]="form.phoneNumber" placeholder="01xxxxxxxxx" />
+      </div>
+
+      <!-- City -->
+      <div class="form-group">
+        <label>City <span class="req">*</span></label>
+        <div class="custom-select" [class.open]="cityDropdownOpen">
+          <div class="custom-select-trigger" (click)="cityDropdownOpen = !cityDropdownOpen">
+            <input
+              type="text"
+              [(ngModel)]="citySearch"
+              (ngModelChange)="onCitySearch($event)"
+              (click)="$event.stopPropagation(); cityDropdownOpen = true"
+              placeholder="Search city..."
+              class="city-search-input"
+            />
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="custom-options">
+            <div *ngFor="let c of filteredCities"
+                 class="custom-option"
+                 [class.selected]="form.city === c.value"
+                 (click)="selectCity(c)">
+              {{ c.label }}
+            </div>
+            <div *ngIf="filteredCities.length === 0" class="no-results">No cities found</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label>Delivery Address <span class="req">*</span></label>
+        <textarea [(ngModel)]="form.address" placeholder="Street, Area..." rows="3"></textarea>
+      </div>
+
+      <!-- Location -->
+<div class="form-group">
+  <label>Location <span class="opt">(optional)</span></label>
+  <button type="button" class="location-btn" (click)="openMap()">
+    📍 {{ locationName || 'Select Location on Map' }}
+  </button>
+</div>
+
+<!-- Map Modal -->
+<div class="map-overlay" *ngIf="showMap" (click)="closeMap()"></div>
+<div class="map-modal" *ngIf="showMap" (click)="$event.stopPropagation()">
+  <div class="map-header">
+    <h3>Select Your Location</h3>
+    <div class="map-header-actions">
+      <button class="current-loc-btn" (click)="getCurrentLocation()">📍 My Location</button>
+      <button class="close-btn" (click)="closeMap()">✕</button>
+    </div>
+  </div>
+  <div id="map"></div>
+  <div class="map-footer">
+    <p *ngIf="!latitude">Click on the map to select your location</p>
+    <p *ngIf="latitude">📍 {{ locationName }}</p>
+    <button class="confirm-btn" (click)="confirmLocation()" [disabled]="!latitude">
+      Confirm Location
+    </button>
+  </div>
+</div>
+
+      <!-- Supply Order Image -->
+      <div class="form-group">
+        <label>Supply Order Image <span class="req">*</span></label>
+        <div class="upload-area">
+          <div class="upload-preview" *ngIf="supplyOrderPreview">
+            <img [src]="supplyOrderPreview" alt="Supply Order" />
+          </div>
+          <label class="upload-label" *ngIf="!supplyOrderPreview">
+            <span>📄 Upload Supply Order</span>
+            <input type="file" accept=".jpg,.jpeg,.png" (change)="onSupplyOrderChange($event)" hidden />
+          </label>
+          <label class="upload-label-sm" *ngIf="supplyOrderPreview">
+            <span>Change Image</span>
+            <input type="file" accept=".jpg,.jpeg,.png" (change)="onSupplyOrderChange($event)" hidden />
+          </label>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-group">
+        <label>Notes <span class="opt">(optional)</span></label>
+        <textarea [(ngModel)]="form.notes" placeholder="Any special instructions..." rows="2"></textarea>
+      </div>
+
+      <!-- ERROR -->
+      <div class="error-msg" *ngIf="errorMsg">⚠️ {{ errorMsg }}</div>
+
+      <!-- SUBMIT -->
+      <button class="submit-btn" (click)="submit()" [disabled]="!canSubmit() || submitting">
+        <span *ngIf="!submitting">Place Order →</span>
+        <span *ngIf="submitting">Placing Order...</span>
+      </button>
+
+      <p class="req-note"><span class="req">*</span> Required fields</p>
+
+    </section>
+
+    <!-- RIGHT: ORDER SUMMARY -->
+    <aside class="summary-section glass">
+      <h2>Order Summary</h2>
+      <div class="summary-items">
+        @for (item of cartService.items(); track item.productId) {
+          <div class="summary-item">
+            <div class="summary-img">
+              <img [src]="'https://localhost:44313' + item.imageUrl" [alt]="item.name" />
+            </div>
+            <div class="summary-info">
+              <p class="summary-name">{{ item.name }}</p>
+              <p class="summary-qty">x{{ item.quantity }}</p>
+            </div>
+            <span class="summary-price">{{ item.price * item.quantity }} EGP</span>
+          </div>
+        }
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>{{ cartService.totalPrice() }} EGP</span>
+      </div>
+      <div class="summary-row">
+        <span>Delivery</span>
+        <span class="free">Free</span>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-total">
+        <span>Total</span>
+        <span>{{ cartService.totalPrice() }} EGP</span>
+      </div>
+    </aside>
+
+  </div>
+</div>

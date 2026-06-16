@@ -1,0 +1,216 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\pharmasystem\\pharmacy_system\\pharmacy_system\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C757DF21-00F3-48AE-B103-7BB95343F940}|pharmacy_system.csproj|d:\\pharmasystem\\pharmacy_system\\pharmacy_system\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C757DF21-00F3-48AE-B103-7BB95343F940}|pharmacy_system.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\Service\\Impelementation\\OrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\Service\\Abstraction\\IOrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\DTOs\\CreateOrderDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\DTOs\\OrderDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\DAL\\Entities\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\DTOs\\CreateProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\DTOs\\UpdateProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\DTOs\\ProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\DAL\\Entities\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\BLL\\Service\\Impelementation\\ProductService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Farmacy_system\\DAL\\Migrations\\20260601113323_AddFreeUnitsToProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 173,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\pharmasystem\\pharmacy_system\\pharmacy_system\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "D:\\pharmasystem\\pharmacy_system\\pharmacy_system\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:00:40.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\Service\\Impelementation\\OrderService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Impelementation\\OrderService.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\Service\\Impelementation\\OrderService.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Impelementation\\OrderService.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAswO4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:50:55.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\Service\\Abstraction\\IOrderService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Abstraction\\IOrderService.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\Service\\Abstraction\\IOrderService.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Abstraction\\IOrderService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:01:33.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateOrderDto.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\DTOs\\CreateOrderDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\CreateOrderDto.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\DTOs\\CreateOrderDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\CreateOrderDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:49:53.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderDto.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\DTOs\\OrderDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\OrderDto.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\DTOs\\OrderDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\OrderDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwBcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:49:40.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\DAL\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\DAL\\Entities\\Order.cs",
+              "ToolTip": "D:\\Farmacy_system\\DAL\\Entities\\Order.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\DAL\\Entities\\Order.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAkwBQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:49:24.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\DTOs\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\CreateProductDto.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\DTOs\\CreateProductDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\CreateProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:32:54.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UpdateProductDto.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\DTOs\\UpdateProductDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\UpdateProductDto.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\DTOs\\UpdateProductDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\UpdateProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:32:44.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\DTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\ProductDto.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\DTOs\\ProductDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\DTOs\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:32:26.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\DAL\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\DAL\\Entities\\Product.cs",
+              "ToolTip": "D:\\Farmacy_system\\DAL\\Entities\\Product.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\DAL\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:32:01.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\BLL\\Service\\Impelementation\\ProductService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Impelementation\\ProductService.cs",
+              "ToolTip": "D:\\Farmacy_system\\BLL\\Service\\Impelementation\\ProductService.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\BLL\\Service\\Impelementation\\ProductService.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAowHMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:10:56.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20260601113323_AddFreeUnitsToProduct.cs",
+              "DocumentMoniker": "D:\\Farmacy_system\\DAL\\Migrations\\20260601113323_AddFreeUnitsToProduct.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Farmacy_system\\DAL\\Migrations\\20260601113323_AddFreeUnitsToProduct.cs",
+              "ToolTip": "D:\\Farmacy_system\\DAL\\Migrations\\20260601113323_AddFreeUnitsToProduct.cs",
+              "RelativeToolTip": "..\\..\\..\\Farmacy_system\\DAL\\Migrations\\20260601113323_AddFreeUnitsToProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:33:23.507Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 153,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

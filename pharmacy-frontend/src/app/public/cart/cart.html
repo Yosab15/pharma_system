@@ -1,0 +1,119 @@
+<div class="cart-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <button class="back-btn" (click)="goBack()">
+      ← Back
+    </button>
+
+    <div class="logo">
+  <img src="yousab logo.jpg" alt="yousab logo" height="100" style="object-fit: contain;" />
+</div>
+
+    <div class="cart-count">
+      🛒 {{ cartService.totalItems() }} Items
+    </div>
+
+  </nav>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" *ngIf="cartService.items().length === 0">
+    <div class="empty-icon">🛒</div>
+    <h2>Your cart is empty</h2>
+    <p>Go back and add some products!</p>
+    <button class="btn-primary" (click)="goBack()">
+      Browse Products
+    </button>
+  </div>
+
+  <!-- CART CONTENT -->
+  <div class="cart-layout" *ngIf="cartService.items().length > 0">
+
+    <!-- ITEMS -->
+    <section class="cart-items">
+
+      <h2 class="section-title">Your Cart</h2>
+
+      @for (item of cartService.items(); track item.productId) {
+
+        <div class="cart-item glass">
+          <!-- Free Units Banner -->
+            <div class="free-units-banner" *ngIf="cartService.paymentType() === 'Cash' && cartService.freeUnitsReceived() > 0">
+            🎁 You have <strong>{{ cartService.freeUnitsReceived() }} FREE units</strong> with this order!
+            </div>
+          <div class="item-image">
+            <img [src]="'https://localhost:44313' + item.imageUrl" [alt]="item.name" />
+          </div>
+
+          <div class="item-info">
+            <h3>{{ item.name }}</h3>
+            <span class="item-price">{{ item.price }} EGP</span>
+          </div>
+
+          <div class="item-controls">
+
+            <button class="qty-btn"
+              (click)="cartService.updateQuantity(item.productId, item.quantity - 1)">
+              −
+            </button>
+
+            <span class="qty">{{ item.quantity }}</span>
+
+            <button class="qty-btn"
+              (click)="cartService.updateQuantity(item.productId, item.quantity + 1)">
+              +
+            </button>
+
+          </div>
+
+          <div class="item-total">
+            {{ item.price * item.quantity }} EGP
+          </div>
+
+          <button class="remove-btn"
+            (click)="cartService.removeItem(item.productId)">
+            🗑️
+          </button>
+
+        </div>
+
+      }
+
+    </section>
+
+    <!-- SUMMARY -->
+    <aside class="cart-summary glass">
+
+      <h2>Order Summary</h2>
+
+      <div class="summary-row">
+        <span>Items ({{ cartService.totalItems() }})</span>
+        <span>{{ cartService.totalPrice() }} EGP</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery</span>
+        <span class="free">Free</span>
+      </div>
+
+      <div class="summary-divider"></div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <span>{{ cartService.totalPrice() }} EGP</span>
+      </div>
+
+      <button class="checkout-btn" (click)="goToOrder()">
+        Proceed to Checkout →
+      </button>
+
+      <button class="continue-btn" (click)="goBack()">
+        ← Continue Shopping
+      </button>
+
+    </aside>
+
+  </div>
+
+</div>

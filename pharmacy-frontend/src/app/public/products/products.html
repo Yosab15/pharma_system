@@ -1,0 +1,155 @@
+<div class="products-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="logo">
+  <img src="yousab logo.jpg" alt="yousab logo" height="100" style="object-fit: contain;" />
+</div>
+
+    <div class="search-box">
+     <input
+  type="text"
+  placeholder="Search medicines..."
+  [ngModel]="searchTerm()"
+  (ngModelChange)="searchTerm.set($event)"
+>
+    </div>
+
+    <div class="nav-actions">
+
+      <button class="icon-btn" (click)="goToCart()">
+        🛒
+        <span *ngIf="cartService.totalItems() > 0" class="cart-badge">
+          {{ cartService.totalItems() }}
+        </span>
+      </button>
+
+
+
+      <div class="profile" (click)="goToAdmin()" style="cursor:pointer">
+        Admin
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="badge">
+        Up To 50% OFF
+      </span>
+
+      <h1>
+        Your Trusted Online Pharmacy
+      </h1>
+
+      <p>
+        Premium healthcare products with fast delivery
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN -->
+  <div class="main-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar glass">
+
+      <h3>
+        Categories
+      </h3>
+
+      <ul>
+
+        <li
+          [class.active]="selectedCategoryId() === null"
+          (click)="showAllProducts()"
+        >
+          All Products
+        </li>
+
+        @for (category of categories(); track category.id) {
+
+          <li
+            [class.active]="selectedCategoryId() === category.id"
+            (click)="filterByCategory(category.id)"
+          >
+            {{ category.name }}
+          </li>
+
+        }
+
+      </ul>
+
+    </aside>
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+
+      <div class="section-title">
+        Featured Products
+      </div>
+
+      <div class="products-grid">
+
+        @for (product of products(); track product.id) {
+
+          <div class="product-card" (click)="goToDetails(product.id)" style="cursor:pointer">
+
+            <div class="product-image">
+
+              <img
+                [src]="getImage(product.imageUrl)"
+                [alt]="product.name"
+              >
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="category">
+                Category : {{ product.categoryName }}
+              </span>
+
+              <h2>
+                {{ product.name }}
+              </h2>
+
+              <div class="rating">
+                ⭐⭐⭐⭐⭐
+              </div>
+
+              <div class="price-row">
+
+                <span class="price">
+                  {{ product.price }} EGP
+                </span>
+
+
+
+              </div>
+
+              <button class="cart-btn" (click)="goToDetails(product.id); $event.stopPropagation()">
+                  View Details →
+              </button>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>

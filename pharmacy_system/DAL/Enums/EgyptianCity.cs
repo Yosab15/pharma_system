@@ -1,0 +1,36 @@
+﻿namespace DAL.Enums
+{
+    public enum EgyptianCity
+    {
+        Cairo,
+        Alexandria,
+        Giza,
+        Shubra_El_Kheima,
+        Port_Said,
+        Suez,
+        Luxor,
+        Mansoura,
+        El_Mahalla_El_Kubra,
+        Tanta,
+        Asyut,
+        Ismailia,
+        Faiyum,
+        Zagazig,
+        Aswan,
+        Damietta,
+        Damanhur,
+        Minya,
+        Beni_Suef,
+        Qena,
+        Sohag,
+        Hurghada,
+        Sixth_of_October,
+        Shibin_El_Kom,
+        Banha,
+        Kafr_El_Sheikh,
+        Arish,
+        Mallawi,
+        Mit_Ghamr,
+        Obour
+    }
+}

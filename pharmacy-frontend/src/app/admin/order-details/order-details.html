@@ -1,0 +1,167 @@
+<div class="details-wrapper">
+
+  <!-- Loading -->
+  <div *ngIf="loading()" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <ng-container *ngIf="!loading() && order()">
+
+    <!-- Header -->
+    <div class="details-header">
+      <button class="back-btn" (click)="goBack()">
+        ← Back
+      </button>
+      <div>
+        <h1>Order <span>#{{ order()!.id }}</span></h1>
+        <p>{{ order()!.orderDate | date:'MMM d, y, h:mm a' }}</p>
+      </div>
+      <span class="status-badge" [class]="statusClass[order()!.status]">
+        {{ statusMap[order()!.status] }}
+      </span>
+    </div>
+
+    <div class="details-grid">
+
+      <!-- Customer Info -->
+      <div class="info-card">
+        <h2>👤 Customer Info</h2>
+        <div class="info-row">
+          <span class="info-label">Name</span>
+          <span class="info-value">{{ order()!.customerName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Responsible</span>
+          <span class="info-value">{{ order()!.responsibleName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Phone</span>
+          <span class="info-value">{{ order()!.phoneNumber }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">City</span>
+          <span class="info-value">{{ cityMap[order()!.city] }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Address</span>
+          <span class="info-value">{{ order()!.address }}</span>
+        </div>
+        <div class="info-row" *ngIf="order()!.latitude && order()!.longitude">
+          <span class="info-label">Location</span>
+          <a [href]="'https://www.google.com/maps?q=' + order()!.latitude + ',' + order()!.longitude"
+            target="_blank" class="map-link">
+            📍 Open in Google Maps
+          </a>
+        </div>
+        <div class="info-row" *ngIf="order()!.notes">
+          <span class="info-label">Notes</span>
+          <span class="info-value">{{ order()!.notes }}</span>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="info-card">
+        <h2>💰 Order Summary</h2>
+        <div class="info-row">
+          <span class="info-label">Order Date</span>
+          <span class="info-value">{{ order()!.orderDate | date:'MMM d, y' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Items</span>
+          <span class="info-value">{{ order()!.items.length }} items</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Payment Type</span>
+          <span class="info-value"
+            [style.color]="order()!.paymentType === 'Cash' ? '#4ade80' : '#f59e0b'">
+            {{ order()!.paymentType === 'Cash' ? '💵 Cash' : '📋 Deferred' }}
+          </span>
+        </div>
+        <div class="info-row" *ngIf="order()!.freeUnitsReceived > 0">
+          <span class="info-label">Free Units</span>
+          <span class="info-value" style="color: #4ade80;">
+            🎁 {{ order()!.freeUnitsReceived }} units
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Total</span>
+          <span class="info-value total">{{ order()!.totalPrice | currency:'EGP':'symbol':'1.0-0' }}</span>
+        </div>
+        <!-- Discount Section -->
+<!-- <div class="discount-section">
+  <p class="discount-title">🏷️ Apply Discount</p>
+  <div class="discount-input-row">
+    <input
+      type="number"
+      [ngModel]="discountInput()"
+      (ngModelChange)="discountInput.set($event)"
+      placeholder="Enter discount amount"
+      min="0"
+    />
+    <button (click)="applyDiscount()" [disabled]="updatingDiscount()">
+      {{ updatingDiscount() ? '...' : 'Apply' }}
+    </button>
+  </div>
+  <div class="discount-result" *ngIf="order()!.discount && order()!.discount! > 0">
+    <div class="info-row">
+  <span class="info-label">Discount</span>
+  <span class="info-value" style="color: #ef4444;">
+    {{ order()!.discount }}% (- {{ order()!.totalPrice * order()!.discount! / 100 | currency:'EGP':'symbol':'1.0-0' }})
+  </span>
+</div>
+    <div class="info-row">
+      <span class="info-label">Final Price</span>
+      <span class="info-value total">
+        {{ order()!.finalPrice | currency:'EGP':'symbol':'1.0-0' }}
+      </span>
+    </div>
+  </div>
+</div> -->
+
+        <!-- Supply Order Image -->
+        <div *ngIf="order()!.supplyOrderImageUrl" style="margin-top: 16px;">
+          <p style="color: #64748b; font-size: 0.82rem; margin-bottom: 8px;">🧾 Supply Order</p>
+          <img
+            [src]="'https://localhost:44313' + order()!.supplyOrderImageUrl"
+            alt="Supply Order"
+            style="width: 100%; border-radius: 10px; cursor: pointer; border: 1px solid #ffffff15;"
+            (click)="openImage(order()!.supplyOrderImageUrl!)"
+          />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Items Table -->
+    <div class="items-card">
+      <h2>🛒 Order Items</h2>
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order()!.items" class="item-row">
+            <td class="product-name">{{ item.productName }}</td>
+            <td class="item-price">{{ item.price | currency:'EGP':'symbol':'1.0-0' }}</td>
+            <td><span class="qty-badge">x{{ item.quantity }}</span></td>
+            <td class="item-total">{{ item.total | currency:'EGP':'symbol':'1.0-0' }}</td>
+          </tr>
+        </tbody>
+        <tfoot *ngIf="order()!.freeUnitsReceived > 0">
+          <tr class="free-units-row">
+            <td colspan="4">
+              🎁 Free Units Received: <strong>{{ order()!.freeUnitsReceived }} units</strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </ng-container>
+</div>

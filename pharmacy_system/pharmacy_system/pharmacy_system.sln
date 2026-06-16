@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pharmacy_system", "pharmacy_system.csproj", "{C757DF21-00F3-48AE-B103-7BB95343F940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{2A0D4851-41F6-4BB5-9C4D-E17E20EA2192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", "{4ACEDCE2-E831-4FB1-804F-C6F406B7F7EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C757DF21-00F3-48AE-B103-7BB95343F940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C757DF21-00F3-48AE-B103-7BB95343F940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C757DF21-00F3-48AE-B103-7BB95343F940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C757DF21-00F3-48AE-B103-7BB95343F940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0D4851-41F6-4BB5-9C4D-E17E20EA2192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0D4851-41F6-4BB5-9C4D-E17E20EA2192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0D4851-41F6-4BB5-9C4D-E17E20EA2192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0D4851-41F6-4BB5-9C4D-E17E20EA2192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACEDCE2-E831-4FB1-804F-C6F406B7F7EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACEDCE2-E831-4FB1-804F-C6F406B7F7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACEDCE2-E831-4FB1-804F-C6F406B7F7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACEDCE2-E831-4FB1-804F-C6F406B7F7EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B34082A-5907-4BDD-A14F-EF2AB499442C}
+	EndGlobalSection
+EndGlobal
